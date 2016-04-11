@@ -58,7 +58,7 @@ public class        MainActivity extends AppCompatActivity {
             });
     }
 
-    final void appCurent(String from, String to, Double value) {
+    final void appCurent(String from, String to, double value) {
         TextView textView = (TextView) findViewById(R.id.value);
 
         if (textView == null) {
@@ -66,7 +66,7 @@ public class        MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG);
             return;
         }
-        Currency currency = new Currency("", getApplicationContext());
+        Currency currency = new Currency("a3572f1ebfa5e95944d715fcd2ce35cc", getApplicationContext());
         currency.current(from, to, value, textView);
     }
 }

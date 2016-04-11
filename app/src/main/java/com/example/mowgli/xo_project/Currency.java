@@ -3,7 +3,10 @@ package com.example.mowgli.xo_project;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -19,18 +22,22 @@ public class Currency {
     protected String _To;
     protected String _From;
 
+
     Currency(String key, Context context) {
         this._key = key;
         this._context = context;
     }
 
-    public void modifyTextView(double cFrom, double cTo)
+    public void modifyTextView(double cFrom, double cTo, double value, TextView textView)
     {
-        double res = 1 * cFrom;
+        double res = value / cFrom;
         res = res * cTo;
+
+       // System.out.println(cTo);
+        textView.setText(Double.toString(res));
     }
 
-    public void current(String From, String To)
+    public void current(String From, String To, final double value, final TextView textView)
     {
         this._To = To.toUpperCase();
         this._From = From.toUpperCase();
@@ -43,9 +50,28 @@ public class Currency {
 
                         result = result.getAsJsonObject("quotes");
 
-                        modifyTextView(Integer.valueOf(result.get("USD" + _To).toString()), Integer.valueOf(result.get("USD" + _From).toString()));
-                        Log.v("Res1: ", result.get("USD" + _To).toString());
-                        Log.v("Res2: ", result.get("USD" + _From).toString());
+                        if (result != null)
+                        {
+                            JsonElement cTmp = result.get("USD" + _From);
+                            JsonElement tTmp = result.get("USD" + _To);
+
+                            if (cTmp != null && tTmp != null)
+                            {
+                                modifyTextView(Double.valueOf(cTmp.toString()), Double.valueOf(tTmp.toString()), value, textView);
+                            }
+                            else
+                            {
+                                textView.setText("Impossible to reach API");
+                            }
+                            //System.out.println(result.toString());
+                            //Log.v("to : ", _To);
+                        }
+                        else
+                        {
+                            textView.setText("Impossible to reach API");
+                        }
+                        //Log.v("Res1: ", result.get("USD" + _To).toString());
+                        //Log.v("Res2: ", result.get("USD" + _From).toString());
 
 
                     }
