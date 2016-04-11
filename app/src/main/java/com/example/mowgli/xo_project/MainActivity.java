@@ -50,6 +50,8 @@ public class        MainActivity extends AppCompatActivity {
                         return;
                     }
                 }
+                Currency lol = new Currency("a3572f1ebfa5e95944d715fcd2ce35cc", MainActivity.this.getApplicationContext());
+
             });
     }
 

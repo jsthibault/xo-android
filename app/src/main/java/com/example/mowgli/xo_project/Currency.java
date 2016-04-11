@@ -24,6 +24,11 @@ public class Currency {
         this._context = context;
     }
 
+    public void modifyTextView(double cFrom, double cTo)
+    {
+        double res = 1 * cFrom;
+        res = res * cTo;
+    }
 
     public void current(String From, String To)
     {
@@ -38,8 +43,11 @@ public class Currency {
 
                         result = result.getAsJsonObject("quotes");
 
-                        Log.v("Res1: ", result.get(" =" + _To).toString());
-                        Log.v("Res2: ", result.get(" =" + _From).toString());
+                        modifyTextView(Integer.valueOf(result.get("USD" + _To).toString()), Integer.valueOf(result.get("USD" + _From).toString()));
+                        Log.v("Res1: ", result.get("USD" + _To).toString());
+                        Log.v("Res2: ", result.get("USD" + _From).toString());
+
+
                     }
                 });
 
