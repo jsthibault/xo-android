@@ -17,34 +17,29 @@ public class Currency {
     protected String _key;
     protected Context _context;
     protected String _To;
+    protected String _From;
 
     Currency(String key, Context context) {
         this._key = key;
         this._context = context;
     }
 
-    protected void modifyFrom()
-    {
-
-    }
-
-    protected void modifyTo()
-    {
-
-    }
 
     public void current(String From, String To)
     {
         this._To = To.toUpperCase();
+        this._From = From.toUpperCase();
         Ion.with(this._context)
-                .load("http://www.apilayer.net/api/live?access_key=" + this._key + "&currencies=" + this._To)
+                .load("http://www.apilayer.net/api/live?access_key=" + this._key + "&currencies=" + this._To + "," + this._From)
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
 
                         result = result.getAsJsonObject("quotes");
-                        Log.v("Res: ", result.get("USD" + _To).toString());
+
+                        Log.v("Res1: ", result.get(" =" + _To).toString());
+                        Log.v("Res2: ", result.get(" =" + _From).toString());
                     }
                 });
 

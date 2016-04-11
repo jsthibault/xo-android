@@ -11,6 +11,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Currency currency = new Currency("a3572f1ebfa5e95944d715fcd2ce35cc", this.getApplicationContext());
-        currency.current("EUR");
+        currency.current("EUR", "BHD");
     }
 }
