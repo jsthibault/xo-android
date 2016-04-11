@@ -10,7 +10,69 @@
     tools:context="com.example.mowgli.xo_project.MainActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/TV_From"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:text="@string/TextViewFrom"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ActivityMain_Spinner_From"
+        android:entries="@array/currency"
+        android:prompt="@string/spinnerFrom"
+        android:layout_below="@+id/TV_From"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:minWidth="150dp"
+        android:inputType="number|numberDecimal|numberSigned"
+        android:id="@+id/ET_Value"
+        android:layout_below="@+id/ActivityMain_Spinner_From"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/TV_To"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:text="@string/TextViewTo"
+        android:layout_below="@+id/ET_Value"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ActivityMain_Spinner_To"
+        android:entries="@array/currency"
+        android:prompt="@string/spinnerFrom"
+        android:layout_below="@+id/TV_To"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Button"
+        android:layout_below="@+id/ActivityMain_Spinner_To"
+        android:text="@string/send"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/value"
+        android:textSize="16sp"/>
+
 </RelativeLayout>

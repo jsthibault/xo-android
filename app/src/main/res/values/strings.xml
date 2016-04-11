@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">XO-project</string>
+    <string name="spinnerFrom">currency from</string>
+    <string name="TextViewFrom">From</string>
+    <string name="TextViewTo">To</string>
+    <string name="send">send</string>
+    <string name="ErrorValue">no value to change</string>
+    <string name="ErrorCurrency">Currency from and to is equal</string>
+    <string name="Value0">Value equal 0</string>
+
+    <string-array name="currency">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>BHD</item>
+        <item>GBP</item>
+        <item>QAR</item>
+    </string-array>
 </resources>
