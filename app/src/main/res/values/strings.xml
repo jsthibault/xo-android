@@ -7,6 +7,7 @@
     <string name="ErrorValue">no value to change</string>
     <string name="ErrorCurrency">Currency from and to is equal</string>
     <string name="Value0">Value equal 0</string>
+    <string name="textViewFail">Display in textView fail</string>
 
     <string-array name="currency">
         <item>EUR</item>
@@ -14,5 +15,6 @@
         <item>BHD</item>
         <item>GBP</item>
         <item>QAR</item>
+        <item>AED</item>
     </string-array>
 </resources>

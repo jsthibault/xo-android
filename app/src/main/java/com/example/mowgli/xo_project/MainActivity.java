@@ -1,12 +1,16 @@
 package com.example.mowgli.xo_project;
 
+import android.database.CursorIndexOutOfBoundsException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class        MainActivity extends AppCompatActivity {
 
@@ -25,7 +29,7 @@ public class        MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String str;
-                    long value;
+                    double value;
                     String currencyFrom;
                     String currencyTo;
 
@@ -43,16 +47,26 @@ public class        MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    if ((value = Long.valueOf(str)) == 0) {
+                    if ((value = Double.valueOf(str)) == 0) {
                         Toast.makeText(MainActivity.this,
                                 MainActivity.this.getResources().getText(R.string.Value0),
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    appCurent(currencyFrom, currencyTo, value);
                 }
-                Currency lol = new Currency("a3572f1ebfa5e95944d715fcd2ce35cc", MainActivity.this.getApplicationContext());
-
             });
     }
 
+    final void appCurent(String from, String to, Double value) {
+        TextView textView = (TextView) findViewById(R.id.value);
+
+        if (textView == null) {
+            Toast.makeText(getApplicationContext(), getResources().getText(R.string.textViewFail),
+                    Toast.LENGTH_LONG);
+            return;
+        }
+        Currency currency = new Currency("", getApplicationContext());
+        currency.current(from, to, value, textView);
+    }
 }
