@@ -28,15 +28,24 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <EditText
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="150dp"
-        android:inputType="number|numberDecimal|numberSigned"
-        android:id="@+id/ET_Value"
+        android:gravity="center_horizontal"
+        android:id="@+id/RL_ET"
         android:layout_below="@+id/ActivityMain_Spinner_From"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:minWidth="150dp"
+            android:inputType="number|numberDecimal|numberSigned"
+            android:id="@+id/ET_Value"/>
+
+    </RelativeLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -46,25 +55,32 @@
         android:layout_margin="5dp"
         android:textSize="16sp"
         android:text="@string/TextViewTo"
-        android:layout_below="@+id/ET_Value"
+        android:layout_below="@+id/RL_ET"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <Spinner
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ActivityMain_Spinner_To"
-        android:entries="@array/currency"
-        android:prompt="@string/spinnerFrom"
+        android:id="@+id/RL_SP2"
         android:layout_below="@+id/TV_To"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ActivityMain_Spinner_To"
+            android:entries="@array/currency"
+            android:prompt="@string/spinnerFrom"/>
+
+    </RelativeLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Button"
-        android:layout_below="@+id/ActivityMain_Spinner_To"
+        android:layout_below="@+id/RL_SP2"
         android:text="@string/send"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -73,6 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/value"
+        android:gravity="center_horizontal"
         android:textSize="16sp"
         android:layout_below="@+id/Button"
         android:layout_alignParentLeft="true"
