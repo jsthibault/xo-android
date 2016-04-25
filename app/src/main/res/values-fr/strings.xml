@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">XO-project</string>
+    <string name="spinnerFrom">Devise de</string>
+    <string name="TextViewFrom">De</string>
+    <string name="TextViewTo">A</string>
+    <string name="send">envoyer</string>
+    <string name="ErrorValue">pas de valeur a changer</string>
+    <string name="ErrorCurrency">la devise de depart et de fin est la meme</string>
+    <string name="Value0">Valeur est a 0</string>
+    <string name="textViewFail">L\'affichage dans le textView a fail</string>
+
+    <string-array name="currency">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>BHD</item>
+        <item>GBP</item>
+        <item>QAR</item>
+        <item>AED</item>
+    </string-array>
+</resources>
